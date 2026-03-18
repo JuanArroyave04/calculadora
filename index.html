@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Ganadera</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <div class="calculadora">
+      <h2>Calculadora Ganadera</h2>
+
+      <label for="animal">Elige el animal:</label>
+      <select id="animal" onchange="mostrarFormulario()">
+        <option value="">-- Selecciona --</option>
+        <option value="vaca">Vaca 🐄</option>
+        <option value="gallina">Gallina 🐔</option>
+        <option value="cerdo">Cerdo 🐖</option>
+      </select>
+
+      <div id="formularioAnimal"></div>
+
+      <button class="btn" onclick="calcular()">Calcular</button>
+
+      <div id="resultado"></div>
+
+      <!-- Gráfica -->
+      <canvas id="graficaResultados" width="350" height="200"></canvas>
+    </div>
+  </div>
+
+  <!-- Importar Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
