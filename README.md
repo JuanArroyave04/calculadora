@@ -1,78 +1,54 @@
-# Calculadora Ganadera 🐄🐔🐖
+# Calculadora Ganadera
 
-Aplicación web diseñada para productores agropecuarios que permite calcular ingresos, gastos y utilidad de diferentes animales (vacas, gallinas y cerdos).  
-Incluye estadísticas detalladas y gráficas dinámicas para visualizar resultados de manera profesional y responsive.
+Aplicacion web para estimar la rentabilidad de operaciones ganaderas de vacas, gallinas y cerdos.
+Permite cargar un escenario, calcular indicadores financieros clave y visualizar rapidamente si el negocio esta dejando utilidad, operando con margen estrecho o entrando en perdida.
 
----
+## Lo que ahora incluye
 
-## 🚀 Características principales
+- Interfaz renovada con enfoque tipo dashboard y mejor legibilidad.
+- Identidad visual mucho mas agropecuaria, inspirada en predio, lote y cuaderno de campo.
+- Formulario dinamico segun el animal seleccionado.
+- Validaciones mas estrictas para evitar calculos inconsistentes.
+- Indicadores clave:
+  - Produccion total.
+  - Ingreso bruto.
+  - Gastos operativos.
+  - Utilidad neta.
+  - Margen neto.
+  - ROI.
+  - Costo por animal.
+  - Costo por unidad producida.
+- Punto de equilibrio en unidades y equivalencia aproximada por animal.
+- Recomendaciones accionables segun el comportamiento del escenario.
+- Comparacion automatica contra la referencia mas reciente del mismo animal.
+- Proyecciones rapidas con escenarios conservador, base y optimista.
+- Exportacion del reporte a CSV e impresion/guardado en PDF desde el navegador.
+- Historial reciente guardado en el navegador.
+- Grafica comparativa de ingresos, gastos y utilidad con Chart.js.
 
-- **Selección de animal**: Vaca, Gallina o Cerdo.
-- **Formulario dinámico**: Los campos cambian según el animal elegido.
-- **Cálculos automáticos**:
-  - Producción total.
-  - Ingresos totales.
-  - Gastos.
-  - Utilidad.
-  - Ingreso promedio por animal.
-  - Margen de utilidad (%).
-- **Visualización gráfica**:
-  - Gráfica de barras con ingresos, gastos y utilidad.
-  - Preparado para añadir gráficas adicionales (ej. pastel).
-- **Diseño profesional**:
-  - Fondo agropecuario con capa semitransparente.
-  - Cuadro central elegante con blur y sombras.
-  - Botón estilizado y responsive.
-- **Responsive design**:
-  - En computadores: todo en vertical, compacto y centrado.
-  - En móviles/tablets: se ajusta automáticamente al ancho de pantalla.
+## Estructura del proyecto
 
----
+- `index.html`: estructura principal de la interfaz.
+- `style.css`: sistema visual, layout responsive y estilos del dashboard.
+- `script.js`: logica del formulario, calculos, grafica e historial local.
 
-## 📂 Estructura del proyecto
+## Uso
 
+1. Abre `index.html` en el navegador.
+2. Selecciona el tipo de animal.
+3. Ingresa cantidad, produccion, precio y gastos del mismo periodo de analisis.
+4. Haz clic en `Calcular rentabilidad`.
+5. Revisa el reporte ejecutivo, el punto de equilibrio y el historial reciente.
 
----
+## Recomendaciones de uso
 
-## ⚙️ Tecnologías utilizadas
+- Usa el mismo periodo para todas las variables del calculo.
+- No dejes los gastos en cero si quieres una lectura realista.
+- Compara escenarios del historial para evaluar cambios en precio, costos o productividad.
 
-- **HTML5** → estructura de la aplicación.
-- **CSS3** → estilos modernos, responsive y agro-temáticos.
-- **JavaScript (ES6)** → lógica de cálculo y manejo dinámico de formularios.
-- **Chart.js** → librería para gráficas interactivas.
+## Tecnologias
 
----
-
-## 📖 Uso
-
-1. Clona o descarga el proyecto.
-2. Abre `index.html` en tu navegador.
-3. Selecciona el animal en el menú desplegable.
-4. Ingresa los datos de cantidad, producción, precio y gastos.
-5. Haz clic en **Calcular**.
-6. Visualiza las estadísticas y la gráfica generada.
-
----
-
-## 🎨 Personalización
-
-- Cambia la imagen de fondo en `style.css` para usar tu propio paisaje agropecuario.
-- Ajusta colores y tipografías según tu identidad visual.
-- Añade más animales o productos modificando la función `mostrarFormulario()` en `script.js`.
-
----
-
-## 📊 Ejemplo de resultados
-
-- Producción total: 210 litros de leche.
-- Ingresos: $630,000.
-- Gastos: $14,000.
-- Utilidad: $616,000.
-- Margen de utilidad: 97.78%.
-- Gráfica comparativa de ingresos, gastos y utilidad.
-
----
-
-## 👨‍🌾 Autor
-
-Proyecto desarrollado por **Juan**, enfocado en brindar herramientas digitales prácticas y profesionales para el sector agropecuario.
+- HTML5
+- CSS3
+- JavaScript
+- Chart.js

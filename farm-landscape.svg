@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Paisaje agropecuario">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#d9f0dc" />
+      <stop offset="45%" stop-color="#f5db9d" />
+      <stop offset="100%" stop-color="#cfbb80" />
+    </linearGradient>
+    <linearGradient id="sunGlow" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffd98f" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#f39a33" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="hillBack" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#7cab62" />
+      <stop offset="100%" stop-color="#53783d" />
+    </linearGradient>
+    <linearGradient id="hillFront" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#6d9847" />
+      <stop offset="100%" stop-color="#42652d" />
+    </linearGradient>
+    <pattern id="furrows" width="54" height="54" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)">
+      <rect width="54" height="54" fill="transparent" />
+      <rect width="8" height="54" fill="#d7b161" fill-opacity="0.25" />
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)" />
+  <circle cx="1220" cy="155" r="98" fill="url(#sunGlow)" />
+
+  <path d="M0 470 C180 390 330 390 520 455 C680 510 830 520 1020 440 C1200 365 1370 360 1600 445 L1600 900 L0 900 Z" fill="url(#hillBack)" />
+  <path d="M0 560 C170 505 370 500 590 560 C770 608 940 620 1130 560 C1320 503 1455 500 1600 550 L1600 900 L0 900 Z" fill="#5f7f3f" />
+  <path d="M0 660 C220 620 410 630 620 700 C850 775 1100 775 1335 705 C1450 670 1538 658 1600 665 L1600 900 L0 900 Z" fill="url(#hillFront)" />
+
+  <path d="M0 702 C210 655 420 660 640 730 C840 794 1115 796 1360 726 C1475 694 1555 687 1600 693 L1600 900 L0 900 Z" fill="url(#furrows)" opacity="0.9" />
+
+  <g opacity="0.9">
+    <path d="M180 515 l18 -58 l19 58 z" fill="#355326" />
+    <rect x="193" y="514" width="8" height="34" fill="#5f4025" />
+    <path d="M250 500 l20 -68 l21 68 z" fill="#2f4d22" />
+    <rect x="263" y="499" width="8" height="38" fill="#5f4025" />
+    <path d="M1360 504 l22 -74 l22 74 z" fill="#355326" />
+    <rect x="1374" y="503" width="8" height="40" fill="#5f4025" />
+    <path d="M1432 517 l16 -50 l16 50 z" fill="#41662b" />
+    <rect x="1442" y="516" width="8" height="30" fill="#5f4025" />
+  </g>
+
+  <g transform="translate(980 474)">
+    <rect x="0" y="55" width="170" height="104" rx="6" fill="#b95b31" />
+    <path d="M-18 58 L85 -8 L188 58 Z" fill="#7d3d22" />
+    <rect x="64" y="103" width="38" height="56" fill="#f4e4bc" />
+    <rect x="16" y="89" width="30" height="28" fill="#f6edcf" />
+    <rect x="123" y="89" width="30" height="28" fill="#f6edcf" />
+    <rect x="184" y="30" width="44" height="129" rx="20" fill="#efe7d0" />
+    <path d="M184 34 C194 8 218 8 228 34 Z" fill="#cf6c31" />
+  </g>
+
+  <g stroke="#f4ead0" stroke-width="7" stroke-linecap="round" opacity="0.95">
+    <path d="M160 628 H410" />
+    <path d="M160 662 H410" />
+    <path d="M160 696 H410" />
+    <path d="M1230 642 H1480" />
+    <path d="M1230 676 H1480" />
+  </g>
+  <g stroke="#f4ead0" stroke-width="8" opacity="0.95">
+    <path d="M182 605 V720" />
+    <path d="M248 605 V720" />
+    <path d="M314 605 V720" />
+    <path d="M380 605 V720" />
+    <path d="M1256 618 V720" />
+    <path d="M1328 618 V720" />
+    <path d="M1400 618 V720" />
+    <path d="M1472 618 V720" />
+  </g>
+</svg>

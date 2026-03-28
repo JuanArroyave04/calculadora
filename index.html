@@ -2,37 +2,277 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Calculadora Ganadera</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Calculadora ganadera profesional para estimar rentabilidad, costos, utilidad y punto de equilibrio en vacas, gallinas y cerdos."
+  >
+  <title>Calculadora Ganadera | Analisis de Rentabilidad</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="contenedor">
-    <div class="calculadora">
-      <h2>Calculadora Ganadera</h2>
+  <div class="background-orb orb-1" aria-hidden="true"></div>
+  <div class="background-orb orb-2" aria-hidden="true"></div>
 
-      <label for="animal">Elige el animal:</label>
-      <select id="animal" onchange="mostrarFormulario()">
-        <option value="">-- Selecciona --</option>
-        <option value="vaca">Vaca 🐄</option>
-        <option value="gallina">Gallina 🐔</option>
-        <option value="cerdo">Cerdo 🐖</option>
-      </select>
+  <main class="app-shell">
+    <section class="panel hero-card" aria-labelledby="heroTitle">
+      <p class="eyebrow">Tablero rural para gestion pecuaria con criterio</p>
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <h1 id="heroTitle">Calculadora Ganadera</h1>
+          <p>
+            Lee la salud economica de tu finca, tu lote y tu produccion con una
+            herramienta pensada para el trabajo real del campo: ingresos,
+            gastos, utilidad, eficiencia y punto de equilibrio en una sola
+            vista.
+          </p>
 
-      <div id="formularioAnimal"></div>
+          <div class="hero-tags" aria-label="Enfoques principales">
+            <span class="hero-tag">Finca</span>
+            <span class="hero-tag">Lote</span>
+            <span class="hero-tag">Rentabilidad</span>
+            <span class="hero-tag">Produccion</span>
+          </div>
+        </div>
 
-      <button class="btn" onclick="calcular()">Calcular</button>
+        <div class="hero-side">
+          <div class="hero-stats" aria-label="Capacidades principales">
+            <article class="stat-pill">
+              <strong>3</strong>
+              <span>frentes pecuarios</span>
+            </article>
+            <article class="stat-pill">
+              <strong>8</strong>
+              <span>lecturas del predio</span>
+            </article>
+            <article class="stat-pill">
+              <strong>100%</strong>
+              <span>enfoque agropecuario</span>
+            </article>
+          </div>
 
-      <div id="resultado"></div>
+          <div class="hero-landscape" aria-hidden="true">
+            <span class="sun-disc"></span>
+            <span class="hill hill-back"></span>
+            <span class="hill hill-middle"></span>
+            <span class="hill hill-front"></span>
+            <span class="barn-shape"></span>
+            <span class="silo-shape"></span>
+            <span class="fence-line fence-left"></span>
+            <span class="fence-line fence-right"></span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <!-- Gráfica -->
-      <canvas id="graficaResultados" width="350" height="200"></canvas>
+    <section class="territory-strip" aria-label="Lineas pecuarias">
+      <article class="territory-card cattle">
+        <span class="territory-label">Lecheria</span>
+        <strong>Control del hato</strong>
+        <p>Revisa litros, costos del ordeño y margen real del lote productivo.</p>
+      </article>
+
+      <article class="territory-card poultry">
+        <span class="territory-label">Postura</span>
+        <strong>Lectura del galpon</strong>
+        <p>Mide huevos, costo unitario y rentabilidad del ciclo de produccion.</p>
+      </article>
+
+      <article class="territory-card swine">
+        <span class="territory-label">Porcicultura</span>
+        <strong>Seguimiento del corral</strong>
+        <p>Compara kilos, precio de salida y presion de costos en la ceba.</p>
+      </article>
+    </section>
+
+    <section class="workspace">
+      <form id="calculatorForm" class="panel control-panel" novalidate>
+        <div class="panel-heading compact">
+          <div>
+            <p class="panel-kicker">Cuaderno de campo</p>
+            <h2>Registro del lote productivo</h2>
+          </div>
+        </div>
+
+        <label for="animal">Linea pecuaria</label>
+        <select id="animal" name="animal" required>
+          <option value="">Selecciona una linea</option>
+          <option value="vaca">Vaca | hato lechero</option>
+          <option value="gallina">Gallina | galpon de postura</option>
+          <option value="cerdo">Cerdo | corral porcino</option>
+        </select>
+
+        <p id="animalInsight" class="field-note">
+          Elige el frente pecuario para adaptar automaticamente las variables del corte productivo.
+        </p>
+
+        <div id="dynamicFields" class="dynamic-fields"></div>
+
+        <p class="micro-note">
+          Usa el mismo corte de tiempo para cantidad, produccion, precio y gastos del predio.
+        </p>
+
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" id="loadExampleBtn">
+            Cargar ejemplo
+          </button>
+          <button type="reset" class="btn btn-ghost">
+            Limpiar
+          </button>
+          <button type="submit" class="btn btn-primary">
+            Calcular rentabilidad
+          </button>
+        </div>
+
+        <div id="formFeedback" class="feedback" aria-live="polite"></div>
+      </form>
+
+      <section class="panel dashboard-panel" aria-labelledby="reportTitle">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-kicker">Centro de mando rural</p>
+            <h2 id="reportTitle">Radiografia financiera del predio</h2>
+          </div>
+          <span id="statusBadge" class="status-badge neutral">Sin corte</span>
+        </div>
+
+        <div class="report-toolbar">
+          <p id="scenarioMeta" class="scenario-meta">
+            Todavia no hay un escenario activo para exportar o imprimir.
+          </p>
+
+          <div class="report-actions">
+            <button type="button" id="exportCsvBtn" class="btn btn-ghost btn-small">
+              Exportar CSV
+            </button>
+            <button type="button" id="printReportBtn" class="btn btn-secondary btn-small">
+              Imprimir / PDF
+            </button>
+          </div>
+        </div>
+
+        <p id="resultHeadline" class="result-headline">
+          Selecciona una linea pecuaria e ingresa tu corte productivo para leer
+          el rendimiento real de la operacion.
+        </p>
+
+        <div id="metricsGrid" class="metrics-grid">
+          <div class="empty-card">
+            Los indicadores apareceran aqui cuando completes un escenario.
+          </div>
+        </div>
+
+        <div class="insights-layout">
+          <article class="insight-card">
+            <h3>Lectura del predio</h3>
+            <div id="summaryList" class="detail-list empty-state">
+              <p>Aun no hay resultados para interpretar.</p>
+            </div>
+          </article>
+
+          <article class="insight-card">
+            <h3>Ajustes de manejo</h3>
+            <div id="recommendationsList" class="detail-list empty-state">
+              <p>Cuando hagas un calculo, aqui veras sugerencias para fortalecer la operacion.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="panel visuals-panel" aria-labelledby="visualTitle">
+      <div class="panel-heading">
+        <div>
+          <p class="panel-kicker">Vista del corral</p>
+          <h2 id="visualTitle">Comparativo del corte financiero</h2>
+        </div>
+      </div>
+
+      <div class="visuals-layout">
+        <div class="chart-shell">
+          <p id="chartMessage" class="chart-message">
+            Calcula un escenario para ver la grafica comparativa entre ingresos, gastos y utilidad.
+          </p>
+          <canvas
+            id="resultsChart"
+            aria-label="Grafica comparativa de ingresos, gastos y utilidad"
+            role="img"
+          ></canvas>
+        </div>
+
+        <div class="side-insights">
+          <article class="mini-panel">
+            <h3>Semaforo del lote</h3>
+            <p id="financialSignal">
+              Aqui se mostrara una lectura rapida del rendimiento del escenario evaluado.
+            </p>
+          </article>
+
+          <article class="mini-panel">
+            <h3>Punto de equilibrio rural</h3>
+            <p id="breakEvenText">
+              Aun no hay datos suficientes para calcular el punto de equilibrio.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel strategy-panel" aria-labelledby="strategyTitle">
+      <div class="panel-heading">
+        <div>
+          <p class="panel-kicker">Planeacion del predio</p>
+          <h2 id="strategyTitle">Comparacion y rutas de manejo</h2>
+        </div>
+      </div>
+
+      <div class="strategy-layout">
+        <article class="insight-card strategy-card">
+          <h3>Comparador de cortes</h3>
+          <div id="comparisonContent" class="detail-list empty-state">
+            <p>
+              Cuando tengas mas de un corte del mismo animal, aqui veras una
+              comparacion automatica contra la referencia mas reciente del predio.
+            </p>
+          </div>
+        </article>
+
+        <article class="insight-card strategy-card">
+          <h3>Ruta de proyeccion</h3>
+          <div id="forecastGrid" class="forecast-grid empty-state">
+            <p>
+              Calcula un corte para generar simulaciones conservadora, base y
+              optimista del siguiente movimiento productivo.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel history-panel" aria-labelledby="historyTitle">
+      <div class="panel-heading">
+        <div>
+          <p class="panel-kicker">Bitacora de finca</p>
+          <h2 id="historyTitle">Historial reciente del predio</h2>
+        </div>
+        <button type="button" id="clearHistoryBtn" class="text-button">
+          Limpiar historial
+        </button>
+      </div>
+
+      <div id="historyList" class="history-list empty-state">
+        <p>Todavia no hay simulaciones guardadas. Cada calculo quedara registrado aqui.</p>
+      </div>
+    </section>
+  </main>
+
+  <noscript>
+    <div class="noscript-banner">
+      Activa JavaScript para usar la Calculadora Ganadera.
     </div>
-  </div>
+  </noscript>
 
-  <!-- Importar Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
-
-
